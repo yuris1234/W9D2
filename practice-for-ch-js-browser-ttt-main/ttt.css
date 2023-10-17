@@ -1,1 +1,19 @@
-/* Your code here */
+.ttt > ul {
+    display: flex;
+    width: 500px;
+    flex-wrap: wrap;
+    height: 500px;
+    list-style-type: none;
+}
+
+.ttt li {
+    width: 32%;
+    height: 33%;
+    border: 2px solid;
+    border-color: black;
+    background-color: gray;
+}
+
+.ttt li:hover {
+    background-color: yellow;
+}
