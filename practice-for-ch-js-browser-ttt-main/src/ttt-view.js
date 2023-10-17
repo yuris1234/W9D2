@@ -18,17 +18,28 @@ class View {
         ul.appendChild(li);
       }
     }
+
     this.el.append(ul);
+    this.el.addEventListener("click", e => {
+      this.handleClick(e);
+    });
   }
   
   handleClick(e) {
-    
+    let target = e.target;
+    this.makeMove(target);
   }
 
   makeMove(square) {
+    Game.prototype.playMove([square.dataset.row, square.dataset.column]);
+    square.dataset.mark = this.game.currentPlayer;
   }
   
   handleGameOver() {
+    const h2 = document.createElement("h2");
+    h2.innerText = "Congrats, game over!";
+    const h1 = document.querySelector("h1");
+    h1.append(h2);
   }
 }
 
