@@ -31,8 +31,12 @@ class View {
   }
 
   makeMove(square) {
-    Game.prototype.playMove([square.dataset.row, square.dataset.column]);
+    this.game.playMove([square.dataset.row, square.dataset.column]);
     square.dataset.mark = this.game.currentPlayer;
+    square.innerText = this.game.currentPlayer;
+    if (this.game.isOver()) {
+      this.handleGameOver();
+    }
   }
   
   handleGameOver() {
