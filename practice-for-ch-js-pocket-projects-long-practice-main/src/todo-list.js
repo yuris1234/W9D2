@@ -1,8 +1,6 @@
 let todos = [];
-let ul = document.createElement("ul");
-ul.className = "todos";
-let form = document.createElement("form");
-form.className = "add-todo-form";
+let ul = document.querySelector(".todos");
+let form = document.querySelector(".add-todo-form");
 
 function addTodo(e) {
     e.preventDefault();
@@ -12,6 +10,7 @@ function addTodo(e) {
     todos.push(todoObject);
     form.reset();
     populateList(todos);
+    todos = [];
 }
 
 function populateList(todos) {
@@ -27,4 +26,7 @@ function populateList(todos) {
     });
 }
 
-form.addEventListener("submit", addTodo(e));
+form.addEventListener("submit", (e) => {
+    addTodo(e);
+});
+
