@@ -23,12 +23,27 @@ function dogLinkCreator() {
   return dogsLink;
 }
 
+let ul = document.querySelector(".drop-down-dog-list")
 function attachDogLinks() {
   let dogLinks = dogLinkCreator();
-  let ul = document.querySelector(".drop-down-dog-list");
   dogLinks.forEach((el) => {
     ul.appendChild(el);
   });
 }
 
 attachDogLinks();
+
+let h3 = document.querySelector("h3");
+h3.addEventListener("mouseenter", handleEnter);
+h3.addEventListener("mouseleave", handleLeave);
+ul.addEventListener("mouseenter", handleEnter)
+ul.addEventListener("mouseleave", handleLeave)
+
+function handleEnter() {
+  ul.className = "drop-down-dog-list"
+}
+
+function handleLeave() {
+  ul.className = "drop-down-dog-list hidden";
+  // ul.style.setProperty("display", none);
+}
